@@ -40,7 +40,6 @@ INSTALLED_APPS = [
     'home',
     'projects',
     'login_register',
-    'corsheaders',
 ]
 
 MIDDLEWARE = [
