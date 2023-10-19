@@ -19,9 +19,6 @@
     <link rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/7.2.96/css/materialdesignicons.min.css">
 
-    <!-- tinyslider -->
-    <link rel="stylesheet" href="{% static 'css/tiny-slider.css' %}"/>
-
     <!-- Custom  scss -->
     <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}"/>
 
@@ -29,23 +26,8 @@
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script>
-    window.addEventListener('scroll', function() {
-        const elementos = document.querySelectorAll('.elementoAnimar');
-
-        elementos.forEach(function(elemento) {
-            const rect = elemento.getBoundingClientRect();
-
-            if (rect.top <= window.innerHeight && rect.bottom >= 0) {
-                // El elemento está en el viewport
-                elemento.classList.add('slide-bottom');
-            } else {
-                // Opcional: Remueve la clase si quieres que la animación se active cada vez que entre al viewport.
-                elemento.classList.remove('slide-bottom');
-            }
-        });
-    });
-    </script>
+    <!--animations-->
+    <script src="{% static 'js/animations.js' %}"></script>
 </head>
 
 <body data-bs-spy="scroll" data-bs-target=".navbar" data-bs-offset="58">
@@ -89,6 +71,7 @@
         }, 1000);
     }
 });
+
 
 </script>
 {% endif %}
@@ -145,10 +128,11 @@
                         <i class="mdi mdi-hexagon-multiple-outline text-white"></i>
                     </div>
                     <h3 class="text-white fw-normal mb-4">Hello, Everyone !</h3>
-                    <h1 class="hero-6-title text-white fw-normal mb-3">We Provide Best Solution</h1>
+                    <h1 class="hero-6-title text-white fw-normal mb-3 tracking-in-expand animate-tracking-in-expand">We
+                        Provide Best Solution</h1>
                     <p class="text-muted font-18 mb-4">Do one chap gutted mate cheesed off dropped a lorem ipsum dolor
                         sit amet clanger crikey cheeky a Queen's English bog blimey ummm I'm telling.!</p>
-                    <a href="#contact" class="btn btn-info">Contactanos</a>
+                    <a href="#contact" class="btn btn-info heartbeat">Contactanos</a>
                     <!--                    <a href="#" class="btn btn-outline-info ms-1">Discover More</a>-->
                 </div>
             </div>
@@ -178,7 +162,7 @@
         </div>
         <!-- end row -->
 
-        <div class="row">
+        <div class="row slide-in-top animate-slide-in-top">
             <div class="col-lg-4 col-md-4">
                 <div class="text-center p-4">
                     <div class="icons-xl mb-3">
@@ -222,7 +206,6 @@
 <!-- end Sobre nosotros -->
 
 <!-- Start Servicios -->
-
 <section class="section bg-light" id="features">
     <div class="container">
         <div class="row justify-content-center">
@@ -268,8 +251,9 @@
             </div>
 
             <div class="col-lg-6 ms-lg-auto col-sm-8 order-1 order-lg-2">
-                <div>
-                    <img src="{% static 'images/features/img-1.jpg' %}" alt="" class="img-fluid mx-auto d-block"/>
+                <div class="">
+                    <img src="{% static 'images/features/img-1.jpg' %}" alt=""
+                         class="img-fluid mx-auto d-block rotate-in-2-fwd-cw animate-rotate-in-2-fwd-cw"/>
                 </div>
             </div>
         </div>
@@ -279,7 +263,7 @@
             <div class="col-lg-6 col-sm-8">
                 <div class="features-img mt-4">
                     <img src="{% static 'images/features/img-2.jpg' %}" alt=""
-                         class="img-fluid mx-auto d-block img-thumbnail"/>
+                         class="img-fluid mx-auto d-block img-thumbnail swing-in-top-fwd animate-swing-in-top-fwd"/>
                 </div>
             </div>
 
@@ -303,7 +287,7 @@
 <!-- End Servicios -->
 
 <!-- Start contact -->
-<section id="contact" class="slide-bottom elementoAnimar">
+<section id="contact" class="slide-bottom animate-slide-bottom">
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
@@ -454,9 +438,6 @@
 
 <!-- unicons -->
 <script src="https://unicons.iconscout.com/release/v2.1.11/script/monochrome/bundle.js"></script>
-
-<!-- testi-slider -->
-<script src="{% static 'js/tiny-slider.js' %}"></script>
 
 <!-- app js -->
 <script src="{% static 'js/app.js' %}"></script>
