@@ -29,6 +29,23 @@
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+    window.addEventListener('scroll', function() {
+        const elementos = document.querySelectorAll('.elementoAnimar');
+
+        elementos.forEach(function(elemento) {
+            const rect = elemento.getBoundingClientRect();
+
+            if (rect.top <= window.innerHeight && rect.bottom >= 0) {
+                // El elemento está en el viewport
+                elemento.classList.add('slide-bottom');
+            } else {
+                // Opcional: Remueve la clase si quieres que la animación se active cada vez que entre al viewport.
+                elemento.classList.remove('slide-bottom');
+            }
+        });
+    });
+    </script>
 </head>
 
 <body data-bs-spy="scroll" data-bs-target=".navbar" data-bs-offset="58">
@@ -72,6 +89,7 @@
         }, 1000);
     }
 });
+
 </script>
 {% endif %}
 <!--Navbar Start-->
@@ -106,7 +124,8 @@
                 <!--                    <a href="#contact" class="nav-link">Contactanos</a>-->
                 <!--                </li>-->
                 <li class="nav-item">
-                    <a href="#contact" class="btn btn-info btn-sm navbar-btn my-lg-0 my-2">Contactanos</a>
+                    <a href="#contact" class="btn btn-info btn-sm navbar-btn my-lg-0 my-2"
+                       id="btnContacto">Contactanos</a>
                 </li>
             </ul>
             <!--            <a class="btn btn-info btn-sm navbar-btn my-lg-0 my-2" href="{% url 'login' %}">Iniciar Sesión</a>-->
@@ -130,7 +149,7 @@
                     <p class="text-muted font-18 mb-4">Do one chap gutted mate cheesed off dropped a lorem ipsum dolor
                         sit amet clanger crikey cheeky a Queen's English bog blimey ummm I'm telling.!</p>
                     <a href="#contact" class="btn btn-info">Contactanos</a>
-<!--                    <a href="#" class="btn btn-outline-info ms-1">Discover More</a>-->
+                    <!--                    <a href="#" class="btn btn-outline-info ms-1">Discover More</a>-->
                 </div>
             </div>
         </div>
@@ -203,6 +222,7 @@
 <!-- end Sobre nosotros -->
 
 <!-- Start Servicios -->
+
 <section class="section bg-light" id="features">
     <div class="container">
         <div class="row justify-content-center">
@@ -255,8 +275,6 @@
         </div>
         <!-- end row -->
 
-        <hr class="my-5"/>
-
         <div class="row align-items-center">
             <div class="col-lg-6 col-sm-8">
                 <div class="features-img mt-4">
@@ -285,7 +303,7 @@
 <!-- End Servicios -->
 
 <!-- Start contact -->
-<section id="contact">
+<section id="contact" class="slide-bottom elementoAnimar">
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
@@ -380,7 +398,7 @@
                 <div class="mt-4 mt-lg-0">
                     <h5 class="mb-4 font-18 text-white">Resources</h5>
                     <ul class="list-unstyled footer-list-menu">
-<!--                        <li><a href="#">Help Center</a></li>-->
+                        <!--                        <li><a href="#">Help Center</a></li>-->
                         <li><a href="#">Privacy Policy</a></li>
                         <li><a href="#">Terms & Conditions</a></li>
                     </ul>
@@ -392,16 +410,16 @@
                     <h5 class="mb-4 font-18 text-white">Social</h5>
                     <ul class="list-inline social-icons-list">
                         <li class="list-inline-item">
-                            <a href="#"><i class="mdi mdi-facebook"></i></a>
+                            <a href="https://www.facebook.com/Boostnere"><i class="mdi mdi-facebook"></i></a>
                         </li>
                         <li class="list-inline-item">
-                            <a href="#"><i class="mdi mdi-twitter"></i></a>
+                            <a href="https://www.instagram.com/boostnere/"><i class="mdi mdi-instagram"></i></a>
                         </li>
                         <li class="list-inline-item">
                             <a href="#"><i class="mdi mdi-linkedin"></i></a>
                         </li>
                         <li class="list-inline-item">
-                            <a href="#"><i class="mdi mdi-google-plus"></i></a>
+                            <a href="mailto:boostnere@gmail.com"><i class="mdi mdi-gmail"></i></a>
                         </li>
                     </ul>
                 </div>
