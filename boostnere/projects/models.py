@@ -44,6 +44,8 @@ class Projects(models.Model):
             return 'late'
         elif task_completed / task_total >= 0.5:
             return 'middle'
+        elif self.completado:
+            return 'completed'
         else:
             return 'early'
 
@@ -58,7 +60,7 @@ class Projects(models.Model):
 class Tasks(models.Model):
     name = models.CharField(max_length=255)
     description = models.TextField()
-    assigned_to = models.ManyToManyField(User)
+    assigned_to = models.ForeignKey(User, on_delete=models.CASCADE)
     created_date = models.DateField(auto_now_add=True)
     completed = models.BooleanField(default=False)
     completed_date = models.DateField(blank=True, null=True)

@@ -221,8 +221,8 @@
                                         <div class="d-flex align-items-center user-group-progress-top">
                                             <div class="media-ui__start">
                                                 <span class="color-light fs-12">Fecha de inicio</span>
-                                                <p class="fs-14 fw-500 color-dark mb-0">{{
-                                                    proyecto_data.proyecto.fecha_inicio }}</p>
+                                                <p class="fs-14 fw-500 color-dark mb-0">
+                                                    {{ proyecto_data.proyecto.fecha_inicio }}</p>
                                             </div>
                                             <div class="media-ui__end">
                                                 <span class="color-light fs-12">Fecha de finalización</span>
@@ -236,15 +236,15 @@
                                     <div class="progress-wrap d-flex align-items-center mb-0">
                                         <div class="progress">
                                             <div class="progress-bar bg-primary" role="progressbar"
-                                                 style="width: {{ proyecto_data.proyecto.progreso }}%;"
-                                                 aria-valuenow="{{ proyecto_data.proyecto.progreso }}" aria-valuemin="0"
+                                                 style="width: {{ proyecto_data.proyecto.progress }}%;"
+                                                 aria-valuenow="{{ proyecto_data.proyecto.progress }}" aria-valuemin="0"
                                                  aria-valuemax="100"></div>
                                         </div>
-                                        <span class="progress-percentage">{{ proyecto_data.proyecto.progreso }}%</span>
+                                        <span class="progress-percentage">{{ proyecto_data.proyecto.progress }}%</span>
                                     </div>
                                     <p class="color-light fs-12 mb-20">
-                                        {{ proyecto_data.proyecto.tareas_completadas }} / {{
-                                        proyecto_data.proyecto.tareas_totales }} tareas
+                                        {{ proyecto_data.proyecto.tasks_completed }} /
+                                        {{ proyecto_data.proyecto.tasks_total }} tareas
                                         completadas
                                     </p>
                                 </div>
@@ -252,17 +252,15 @@
                             <div class="mt-20 px-30">
                                 <p class="fs-13 color-light mb-10">Asignada a </p>
                                 <ul class="d-flex flex-wrap user-group-people__parent">
-                                    {% for usuario in proyecto_data.proyecto.asignado_a.all %}
                                     <li>
                                         <a href="#">
                                             <img class="rounded-circle wh-34 bg-opacity-secondary"
-                                                 src="{{ usuario.userprofile.image.url }}" alt="{{ usuario.username }}">
+                                                 src="{{ proyecto_data.proyecto.asignado_a.userprofile.image.url }}" alt="{{ proyecto_data.proyecto.asignado_a.username }}">
 
                                         </a>
                                         <p class="justify-content-center" style="text-align: center;">
-                                            {{usuario.username }}</p>
+                                            {{ proyecto_data.proyecto.asignado_a.username }}</p>
                                     </li>
-                                    {% endfor %}
                                 </ul>
                             </div>
                         </div>

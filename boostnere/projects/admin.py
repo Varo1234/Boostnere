@@ -11,14 +11,12 @@ class ProyectoAdmin(admin.ModelAdmin):
     list_filter = ('fecha_inicio', 'fecha_finalizacion',)
     search_fields = ('nombre', 'descripcion',)
     date_hierarchy = 'fecha_inicio'
-    filter_horizontal = ('tasks',)
 
 
 class TasksAdmin(admin.ModelAdmin):
     list_display = ('name', 'completed',)
     list_filter = ('completed',)
     search_fields = ('name', 'description',)
-    filter_horizontal = ('assigned_to',)
 
 
 admin.site.register(Projects, ProyectoAdmin)
